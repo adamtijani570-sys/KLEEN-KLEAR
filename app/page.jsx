@@ -191,13 +191,11 @@ const CATEGORIES = [
   "Scent Pads",
 ];
 
-const money = (amount) =>
+const money = (amount: number) =>
   new Intl.NumberFormat("en-NG", {
     style: "currency",
     currency: "NGN",
-    maximumFractionDigits: 0,
   }).format(amount);
-
 export default function Home() {
   const [showAllSouvenirs, setShowAllSouvenirs] = useState(false);
   const [search, setSearch] = useState("");
