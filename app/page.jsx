@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { FaInstagram as Instagram } from "react-icons/fa";
 import {
@@ -191,7 +191,7 @@ const CATEGORIES = [
   "Scent Pads",
 ];
 
-const money = (amount: number) =>
+const money = (amount) =>
   new Intl.NumberFormat("en-NG", {
     style: "currency",
     currency: "NGN",
@@ -319,7 +319,7 @@ export default function Home() {
     setCheckoutOpen(true);
   }
 
-  function handleAuth(e: FormEvent<HTMLFormElement>) {
+  function handleAuth(e) {
     e.preventDefault();
 
     const form = new FormData(e.currentTarget);
@@ -395,7 +395,7 @@ export default function Home() {
     showNotice("You have logged out.");
   }
 
-  function placeOrder(e: FormEvent<HTMLFormElement>) {
+  function placeOrder(e) {
     e.preventDefault();
 
     if (!user) {
@@ -510,7 +510,7 @@ export default function Home() {
               className="h-17 w-auto max-w-[150px] object-contain"
               onError={(event) => {
                 event.currentTarget.style.display = "none";
-                const fallback = event.currentTarget.nextElementSibling as HTMLElement | null;
+                const fallback = event.currentTarget.nextElementSibling;
                 if (fallback) fallback.style.display = "block";
               }}
             />
@@ -999,7 +999,7 @@ export default function Home() {
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                       onError={(event) => {
                         event.currentTarget.style.display = "none";
-                        const fallback = event.currentTarget.nextElementSibling as HTMLElement | null;
+                       const fallback = event.currentTarget.nextElementSibling;
                         if (fallback) fallback.style.display = "flex";
                       }}
                     />
